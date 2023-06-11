@@ -197,11 +197,11 @@ jobs:
           target: ALLINONE
           platforms: linux/amd64,linux/arm64
           load: true
-          tags: jakiuncle/casdoor-all-in-one:${{steps.get-current-tag.outputs.tag }}
+          tags: jakiuncle/casdoor-all-in-one:1.0.0
 
       - name: Test
         run: |
-          docker run --rm jakiuncle/casdoor-all-in-one:${{steps.get-current-tag.outputs.tag }} 
+          docker run --rm jakiuncle/casdoor-all-in-one:1.0.0
 
       - name: Push to Docker Hub
         uses: docker/build-push-action@v3
@@ -211,7 +211,7 @@ jobs:
           target: STANDARD
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: jakiuncle/casdoor:${{steps.get-current-tag.outputs.tag }},casbin/casdoor:latest
+          tags: jakiuncle/casdoor:1.0.0,casbin/casdoor:latest
 
       - name: Push All In One Version to Docker Hub
         uses: docker/build-push-action@v3
@@ -221,7 +221,7 @@ jobs:
           target: ALLINONE
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: jakiuncle/casdoor-all-in-one:${{steps.get-current-tag.outputs.tag }},casbin/casdoor-all-in-one:latest
+          tags: jakiuncle/casdoor-all-in-one:1.0.0,casbin/casdoor-all-in-one:latest
 
 
 
